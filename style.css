@@ -7,3 +7,46 @@
     font-family: 'Sarabun', sans-serif;
 }
 
+body{
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.content h2{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom:2px solid black ;
+}
+
+.content .btn-content{
+    font-weight: 500;
+    font-size: 18px;
+    width: 60%;
+    height: 50px;
+    border: none;
+    background-color: aquamarine;
+    border-radius: 10px;
+}
+
+.content .btn-last{
+    margin-bottom: 10px;
+}
