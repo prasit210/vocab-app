@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Vocabulary Challenge</title>
-</head>
-<body>
-    <h1>Vocabulary</h1>
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="progress-container">
+          <div class="progress-bar" id="myBar"></div>
+        </div>
+        <div class="vocab-content">
+            <h1 id="vocab-text" class="vocab-text">Text</h1>
+            <p id="vocab-parts" class="vocab-parts">(text)</p>
+        </div>
+        <div class="vocab-choice">
+            <button id="btn-choice1" class="btn-choice" onclick="changeColor(this, 'greenBtn')" >CHOICE A</button>
+            <button id="btn-choice2" class="btn-choice" onclick="changeColor(this, 'redBtn')">CHOICE B</button>
+        </div>
+      </div>
+
+      <!-- <button onclick="increaseProgress()">เริ่ม</button> -->
+    </div>
+    <script src="scripts.js"></script>
+  </body>
 </html>

@@ -19,17 +19,20 @@ body{
     justify-content: center;
 }
 
+
 .content{
-    width: 500px;
+    width: 400px;
     height: 400px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     gap: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
+
+/*! index.html  */
 
 .content h2{
     margin-top: 10px;
@@ -49,4 +52,65 @@ body{
 
 .content .btn-last{
     margin-bottom: 10px;
+}
+
+/* ! challenge.html Page */
+
+.progress-container {
+    width: 95%;
+    background-color: #e3e3e3;
+    border-radius: 10px;
+    margin: 10px 0;
+    
+}
+
+.progress-bar {
+    width: 0;
+    height: 30px;
+    background-color: #4caf50;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+}
+
+.vocab-content .vocab-text{
+    font-size: 80px;
+    text-align: center;
+}
+
+.vocab-content .vocab-parts{
+    font-size: 22px;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.content .vocab-choice{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    gap: 15px;
+}
+
+.content .vocab-choice .btn-choice{
+    height: 50px;
+    width: 75%;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.btn-choice.greenBtn{
+    background-color: #00ff84;
+    color: #fff;
+}
+
+.btn-choice.redBtn{
+    background-color: rgb(255, 37, 37);
+    color: #fff;
 }
