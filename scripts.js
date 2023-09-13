@@ -33,13 +33,6 @@
 //@ 5. เมื่อเลือกคำตอบ ถ้าตอบถูก คะแนนจะ +1 / ผิด = 0
 //@ 6. ไม่ว่าจะตอบ ถูก หรือ ผิด ก็ไปยังข้อถัดไป
 
-// เรียกใช้ฟังก์ชันสลับ
-//shuffleArray(data.vocab);
-
-// vocabTextDOM.innerText = data.vocab[0].vocabEN;
-// partsOfDOM.innerText = `(${data.vocab[0].partOf})`;
-// btnChoiceA.innerText = data.vocab[0].vocabTH;
-// ฟังก์ชันสลับตำแหน่งของออบเจ็กต์ในอาร์เรย์
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -75,22 +68,46 @@ console.log("START RANDOM");
   console.log('API DATA : ',data);
 
 window.onload = () =>{
-  showQuestion();
+  const vocabAll = data.vocab;
+  showQuestion(vocabAll);
 }
 
 
-
-const showQuestion = async () => {
+const showQuestion = async (vocab) => {
   const vocabTextDOM = document.getElementById("vocab-text");
   const partsOfDOM = document.getElementById("vocab-parts");
   const btnChoiceA = document.getElementById("btn-choice1");
   const btnChoiceB = document.getElementById("btn-choice2");
 
+  let indexVocab = 0
+
+   //? เปรียบเหมือน ใช้ Axios ดึงมา
+  //console.log("Variable VocabAll : ", vocabAll);
+
+  const vocabRandom = await shuffleArray([...vocab]); //? สุ่มข้อมูลที่ได้มาจาก API ใหม่ทั้งหมดเพื่อให้การแสดงผลแต่ละครั้ง จะได้ไม่เหมือนกัน
+  console.log('RANDOM DATA : ',vocabRandom);
+  //console.log("VocabRandom Line : ", vocabRandom[0].vocabEN);
+
+  vocabTextDOM.innerText = vocabRandom[indexVocab].vocabEN
+  partsOfDOM.innerText = `(${vocabRandom[indexVocab].partOf})`
+  
+  // const randomNum = (Math.random()*10);
+  // console.log(randomNum.toFixed())
+
+  // TODO ไม่ให้ช้อย คำตอบที่ ถูก กับคำตอบที่ ผิด ซ้ำกัน
+  const randomChoice = (Math.random() * 10).toFixed()
+  console.log('ข้อผิดที่นำมาใส่อีกช้อย Index = ',randomChoice)
+  if(Math.random() < 0.5) {
+    btnChoiceA.innerText = vocabRandom[indexVocab].vocabTH
+    if(indexVocab == randomChoice){
+      console.log('สุ่มเจอตำแหน่งเดียวกัน')
+    }
+    btnChoiceB.innerText = vocabRandom[randomChoice].vocabTH
+  }else{
+    btnChoiceB.innerText = vocabRandom[indexVocab].vocabTH
+    btnChoiceA.innerText = vocabRandom[randomChoice].vocabTH
+  }
   
 
-  const vocabAll = data.vocab; //? เปรียบเหมือน ใช้ Axios ดึงมา
-  console.log("Variable VocabAll : ", vocabAll);
 
-  const vocabRandom = await shuffleArray([...vocabAll]); //? สุ่มข้อมูลที่ได้มาจาก API ใหม่ทั้งหมดเพื่อให้การแสดงผลแต่ละครั้ง จะได้ไม่เหมือนกัน
-  console.log("VocabRandom Line : ", vocabRandom[0].vocabEN);
 };
